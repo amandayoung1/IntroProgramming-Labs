@@ -8,6 +8,9 @@ def main():
         if guess == animal:
             print ("Congratulations! You guessed it!")
             break
+        elif guess == "quit":
+            print ("Thanks for playing. Bye!")
+            break
         else:
             print ("Sorry! Try again...")
             
