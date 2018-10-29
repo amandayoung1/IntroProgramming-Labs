@@ -16,7 +16,8 @@ def doLoop():
     while True:
         cmd = input("What computation do you want to perform? ")
         cmd = cmd.lower()
-       
+
+        global result  
         if cmd == "add":
             getInput()
             result = num1 + num2
@@ -31,7 +32,10 @@ def doLoop():
             printResult()
         elif cmd == "div":
             getInput()
-            result = num1 // num2
+            try:
+                result = num1 // num2
+            except:
+                print("Unable to divide by zero!")
             printResult()
         elif cmd == "quit":
             break
@@ -40,15 +44,18 @@ def doLoop():
             
 def printResult():
     global result
-    print("The result is " + str(result) + ".\n")
+    try:
+        print("The result is " + str(result) + ".\n")
+    except:
+        pass
 
 def getInput():
-    global num1, num2
+    global num1, num2, result
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
-    
+        
 def main():
- showIntro()
- doLoop()
- showOutro()
+    showIntro()
+    doLoop()
+    showOutro()
 main()
